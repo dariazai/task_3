@@ -27,9 +27,14 @@ public class LoginPage {
     //Кнопка "Забыли пароль"
     private final By failPassword = By.className("Auth_link__1fOlj");
 
+
+    //Заголовок "Вход"
+    private final By entrance =By.xpath("//h2[text()='Вход']");
+
+    // Ожидание видимости заголовка "Вход"
     public void waitLoad() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.textToBe(By.cssSelector("h2"), "Вход"));
+                .until(ExpectedConditions.visibilityOfElementLocated(entrance));
     }
 
     // Метод нажимает кнопку "Зарегистрироваться"
@@ -55,6 +60,11 @@ public class LoginPage {
     // Метод нажимает кнопку "Забыли пароль"
     public void clickFailPassword() {
         driver.findElement(failPassword).click();
+    }
+
+    // Метод проверяет что хэдер "Вход" отображается
+    public boolean isEntranceDisplayed() {
+        return driver.findElement(entrance).isDisplayed();
     }
 
 }

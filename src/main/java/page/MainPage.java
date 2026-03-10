@@ -1,7 +1,5 @@
 package page;
 
-import org.junit.jupiter.api.condition.DisabledIfSystemProperties;
-import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -24,10 +22,10 @@ public class MainPage {
     private final By entranceInAccount =By.xpath("//button[text()='Войти в аккаунт']");
 
     //Кнопка "Конструктор"
-    private final By constructorButton =By.xpath("//button[text()='Конструктор']");
+    private final By constructorButton =By.xpath("//p[text()='Конструктор']");
 
     //Логотип сайта
-    private  final By logo = By.xpath("//svg");
+    private  final By logo = By.cssSelector("svg");
 
     //метод нажимает кнопку "Личный кабинет"
     public void clickPersonalAccount() {
@@ -38,14 +36,17 @@ public class MainPage {
     public void clickEntranceInAccount() {
         click.waitClick(driver.findElement(entranceInAccount));
     }
+
     //метод нажимает кнопку "Конструктор"
-    public void clickconstructorButton() {
+    public void clickConstructorButton() {
         click.waitClick(driver.findElement(constructorButton));
     }
+
   // Метод проверяет что конструктор отображается
     public boolean isHeaderDisplayed() {
         return driver.findElement(header).isDisplayed();
     }
+
     //метод нажимает кнопку Логотип
     public void clickLogo() {
         click.waitClick(driver.findElement(logo));

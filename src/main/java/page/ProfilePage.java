@@ -2,6 +2,10 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class ProfilePage {
     WaitAndClickHelpers click = new WaitAndClickHelpers();
@@ -12,10 +16,25 @@ public class ProfilePage {
     }
 
     //Кнопка "Конструктор"
-    private final By constructorButton =By.xpath("//button[text()='Конструктор']");
+    private final By constructorButton =By.xpath("//p[text()='Конструктор']");
+
+    //Кнопка "Конструктор"
+    private final By exitButton =By.xpath("//button[text()='Выход']");
+
+    // Ожидание видимости заголовка "Выход"
+    public void waitLoad() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(exitButton));
+    }
 
     //метод нажимает кнопку "Конструктор"
     public void clickConstructorButton() {
-        click.waitClick(driver.findElement(constructorButton));
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.elementToBeClickable(constructorButton))
+                .click();
+    }
+    //метод нажимает кнопку "Выход"
+    public void clickExitButton() {
+        click.waitClick(driver.findElement(exitButton));
     }
 }
