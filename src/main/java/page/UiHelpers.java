@@ -37,6 +37,7 @@ public class UiHelpers {
 
         driver.get(UrlData.URL_MAIN_PAGE);
     }
+
     @AfterEach
     public void tearDown() {
         if (driver != null) {

@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class RegisterPage {
-    WaitAndClickHelpers click = new WaitAndClickHelpers();
+
     private final WebDriver driver;
 
     public RegisterPage(WebDriver driver) {
@@ -47,6 +47,7 @@ public class RegisterPage {
     public boolean isHeaderDisplayed() {
         return driver.findElement(errorPassword).isDisplayed();
     }
+
     //Кликнуть на кнопку "Войти"
     public void clickLoginButton() {
         driver.findElement(loginButton).click();

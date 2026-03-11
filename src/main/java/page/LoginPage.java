@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage {
-    WaitAndClickHelpers click = new WaitAndClickHelpers();
+
     private final WebDriver driver;
 
     public LoginPage(WebDriver driver) {
@@ -27,9 +27,8 @@ public class LoginPage {
     //Кнопка "Забыли пароль"
     private final By failPassword = By.className("Auth_link__1fOlj");
 
-
     //Заголовок "Вход"
-    private final By entrance =By.xpath("//h2[text()='Вход']");
+    private final By entrance = By.xpath("//h2[text()='Вход']");
 
     // Ожидание видимости заголовка "Вход"
     public void waitLoad() {
@@ -66,5 +65,4 @@ public class LoginPage {
     public boolean isEntranceDisplayed() {
         return driver.findElement(entrance).isDisplayed();
     }
-
 }

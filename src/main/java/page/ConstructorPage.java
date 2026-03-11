@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class ConstructorPage {
     WaitAndClickHelpers click = new WaitAndClickHelpers();
     private final WebDriver driver;
+
     public ConstructorPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -14,10 +15,10 @@ public class ConstructorPage {
     private final By bun = By.xpath("//div[contains(@class,'tab_tab')][.//span[text()='Булки']]");
 
     //Кнопка "Соусы"
-    private final By sauce= By.xpath("//span[text()='Соусы']");
+    private final By sauce = By.xpath("//span[text()='Соусы']");
 
     //Кнопка "Начинки"
-    private final By fillings= By.xpath("//span[text()='Начинки']");
+    private final By fillings = By.xpath("//span[text()='Начинки']");
 
     //Заголовок "Соусы"
     private final By saucesSection = By.xpath("//span[text()='Соусы']/parent::*[contains(@class,'current')]");

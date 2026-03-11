@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class ForgotPage {
-    WaitAndClickHelpers click = new WaitAndClickHelpers();
     private final WebDriver driver;
+
     public ForgotPage(WebDriver driver) {
         this.driver = driver;
     }
