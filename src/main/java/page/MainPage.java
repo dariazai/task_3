@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -26,32 +27,32 @@ public class MainPage {
     //Логотип сайта
     private final By logo = By.cssSelector("svg");
 
-    //Метод нажимает кнопку "Личный кабинет"
+    @Step("Нажимаем на кнопку личный кабинет")
     public void clickPersonalAccount() {
         click.waitClick(driver.findElement(personalAccount));
     }
 
-    //Метод нажимает кнопку "Войти в аккаунт"
+    @Step("Нажимаем на кнопку Войти в аккаунт")
     public void clickEntranceInAccount() {
         click.waitClick(driver.findElement(entranceInAccount));
     }
 
-    //Метод нажимает кнопку "Конструктор"
+    @Step("Нажимаем на кнопку Конструктор")
     public void clickConstructorButton() {
         click.waitClick(driver.findElement(constructorButton));
     }
 
-    // Метод проверяет что конструктор отображается
+    @Step("Проверяем, что Конструктор отображается")
     public boolean isHeaderDisplayed() {
         return driver.findElement(header).isDisplayed();
     }
 
-    //Метод нажимает кнопку Логотип
+    @Step("Нажимаем на логотип")
     public void clickLogo() {
         click.waitClick(driver.findElement(logo));
     }
 
-    // Метод проверяет что логотип отображается
+    @Step("Проверяем, что логотип отображается")
     public boolean isLogoDisplayed() {
         return driver.findElement(logo).isDisplayed();
     }

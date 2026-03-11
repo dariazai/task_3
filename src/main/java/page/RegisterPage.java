@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -28,27 +29,27 @@ public class RegisterPage {
         driver.findElements(field).get(0).sendKeys(nameData);
     }
 
-    //Заполнение поля "Email"
+    @Step("Заполняем поле email")
     public void setEmail(String emailData) {
         driver.findElements(field).get(1).sendKeys(emailData);
     }
 
-    //Заполнение поля "Пароль"
+    @Step("Заполняем поле пароль")
     public void setPassword(String passwordData) {
         driver.findElements(field).get(2).sendKeys(passwordData);
     }
 
-    //Кликнуть на кнопку "Зарегистироваться"
+    @Step("Кликаем на кнопку Зарегистрироваться")
     public void clickRegisterButton() {
         driver.findElement(registerButton).click();
     }
 
-    //Метод проверяет отображение ошибки Некорректный пароль
+    @Step("Проверяем отображение ошибки")
     public boolean isHeaderDisplayed() {
         return driver.findElement(errorPassword).isDisplayed();
     }
 
-    //Кликнуть на кнопку "Войти"
+    @Step("Кликаем на кнопку Войти")
     public void clickLoginButton() {
         driver.findElement(loginButton).click();
     }

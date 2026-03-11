@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,20 +22,20 @@ public class ProfilePage {
     //Кнопка "Конструктор"
     private final By exitButton = By.xpath("//button[text()='Выход']");
 
-    // Ожидание видимости заголовка "Выход"
+    @Step("Ожидание видимости заголовка Выход")
     public void waitLoad() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOfElementLocated(exitButton));
     }
 
-    //Метод нажимает кнопку "Конструктор"
+    @Step("Нажимаем на кнопку Конструктор")
     public void clickConstructorButton() {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(constructorButton))
                 .click();
     }
 
-    //Метод нажимает кнопку "Выход"
+    @Step("Нажимаем на кнопку Выход")
     public void clickExitButton() {
         click.waitClick(driver.findElement(exitButton));
     }

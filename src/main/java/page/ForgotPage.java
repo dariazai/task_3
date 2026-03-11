@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,7 +14,7 @@ public class ForgotPage {
     //кнопка "Войти"
     private final By enter = By.className("Auth_link__1fOlj");
 
-    // Метод нажимает кнопку "Войти"
+    @Step("Нажимаем на кнопку Войти")
     public void clickEnterButton() {
         driver.findElement(enter).click();
     }

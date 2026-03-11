@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,38 +31,38 @@ public class LoginPage {
     //Заголовок "Вход"
     private final By entrance = By.xpath("//h2[text()='Вход']");
 
-    // Ожидание видимости заголовка "Вход"
+    @Step("Ожидание видимости заголовка Вход")
     public void waitLoad() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOfElementLocated(entrance));
     }
 
-    // Метод нажимает кнопку "Зарегистрироваться"
+    @Step("Нажимаем на кнопку Зарегистрироваться")
     public void clickRegister() {
         driver.findElement(register).click();
     }
 
-    //Заполнение поля "Email"
+    @Step("Заполняем поле Email")
     public void setEmail(String emailData) {
         driver.findElements(field).get(0).sendKeys(emailData);
     }
 
-    //Заполнение поля "Пароль"
+    @Step("Заполняем поле Пароль")
     public void setPassword(String passwordData) {
         driver.findElements(field).get(1).sendKeys(passwordData);
     }
 
-    //Кликнуть на кнопку "Войти"
+    @Step("Нажимаем на кнопку Войти")
     public void clickEnterButton() {
         driver.findElement(enterButton).click();
     }
 
-    // Метод нажимает кнопку "Забыли пароль"
+    @Step("Нажимаем на кнопку Забыли пароль")
     public void clickFailPassword() {
         driver.findElement(failPassword).click();
     }
 
-    // Метод проверяет что хэдер "Вход" отображается
+    @Step("Проверяем, что что хэдер \"Вход\" отображается")
     public boolean isEntranceDisplayed() {
         return driver.findElement(entrance).isDisplayed();
     }
