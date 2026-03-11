@@ -51,9 +51,4 @@ public class MainPage {
     public void clickLogo() {
         click.waitClick(driver.findElement(logo));
     }
-
-    @Step("Проверяем, что логотип отображается")
-    public boolean isLogoDisplayed() {
-        return driver.findElement(logo).isDisplayed();
-    }
 }
