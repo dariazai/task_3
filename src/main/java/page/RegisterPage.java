@@ -45,7 +45,7 @@ public class RegisterPage {
     }
 
     @Step("Проверяем отображение ошибки")
-    public boolean isHeaderDisplayed() {
+    public boolean isErrorDisplayed() {
         return driver.findElement(errorPassword).isDisplayed();
     }
 

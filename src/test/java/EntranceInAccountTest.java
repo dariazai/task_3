@@ -28,6 +28,7 @@ public class EntranceInAccountTest extends UiHelpers {
         objMainPage.clickEntranceInAccount();
         login();
         assertTrue(driver.getCurrentUrl().contains(UrlData.URL_MAIN_PAGE));
+        assertTrue(objMainPage.isCreateButtonDisplayed());
     }
 
     @Description("Проверка входа в личный кабинет на главной странице, с помощью кнопки Личный кабинет")
@@ -37,6 +38,7 @@ public class EntranceInAccountTest extends UiHelpers {
         objMainPage.clickPersonalAccount();
         login();
         assertTrue(driver.getCurrentUrl().contains(UrlData.URL_MAIN_PAGE));
+        assertTrue(objMainPage.isCreateButtonDisplayed());
     }
 
     @Description("Проверка входа в личный кабинет со страницы регистрации по кнопке Войти")
@@ -50,6 +52,7 @@ public class EntranceInAccountTest extends UiHelpers {
         objRegisterPage.clickLoginButton();
         login();
         assertTrue(driver.getCurrentUrl().contains(UrlData.URL_MAIN_PAGE));
+        assertTrue(objMainPage.isCreateButtonDisplayed());
     }
 
     @Description("Проверка входа в личный кабинет со страницы регистрации по кнопке Войти")
@@ -63,6 +66,7 @@ public class EntranceInAccountTest extends UiHelpers {
         objForgotPage.clickEnterButton();
         login();
         assertTrue(driver.getCurrentUrl().contains(UrlData.URL_MAIN_PAGE));
+        assertTrue(objMainPage.isCreateButtonDisplayed());
     }
 
     @AfterAll

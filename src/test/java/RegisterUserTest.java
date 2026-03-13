@@ -22,6 +22,7 @@ public class RegisterUserTest extends UiHelpers {
         objLoginPage.setPassword(UserData.PASSWORD);
         objLoginPage.clickEnterButton();
         assertTrue(driver.getCurrentUrl().contains(UrlData.URL_MAIN_PAGE));
+        assertTrue(objMainPage.isCreateButtonDisplayed());
         userCreated = true;
     }
 
@@ -34,7 +35,7 @@ public class RegisterUserTest extends UiHelpers {
         objLoginPage.clickRegister();
         RegisterPage objRegisterPage = new RegisterPage(driver);
         registration("fjhh");
-        assertTrue(objRegisterPage.isHeaderDisplayed());
+        assertTrue(objRegisterPage.isErrorDisplayed());
         userCreated = false;
     }
 

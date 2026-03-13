@@ -27,8 +27,10 @@ public class TransitionFromPersonalAccountTest extends UiHelpers {
         createUserAndLogin();
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickPersonalAccount();
+        ProfilePage objProfilePage = new ProfilePage(driver);
         assertTrue(new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.urlContains("/account/profile")));
+        assertTrue(objProfilePage.isInformationMessageDisplayed());
     }
 
     @Description("Проверка, что из личного кабинета, после клика на кнопку Конструктор происходит переход в контструктор")
@@ -39,7 +41,7 @@ public class TransitionFromPersonalAccountTest extends UiHelpers {
         objMainPage.clickPersonalAccount();
         ProfilePage objProfilePage = new ProfilePage(driver);
         objProfilePage.clickConstructorButton();
-        assertTrue(objMainPage.isHeaderDisplayed());
+        assertTrue(objMainPage.isHeaderCollectBurgerDisplayed());
     }
 
     @Description("Проверка, что из личного кабинета, по клику на лого, происходит переход на главную страницу")
@@ -49,7 +51,7 @@ public class TransitionFromPersonalAccountTest extends UiHelpers {
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickPersonalAccount();
         objMainPage.clickLogo();
-        assertTrue(objMainPage.isHeaderDisplayed());
+        assertTrue(objMainPage.isHeaderCollectBurgerDisplayed());
     }
 
     @Description("Проверка, что из личного кабинета, по клику на выход, происходит переход на страницу авторизации")

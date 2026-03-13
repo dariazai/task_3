@@ -3,6 +3,11 @@ package page;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class MainPage {
     WaitAndClickHelpers click = new WaitAndClickHelpers();
@@ -16,7 +21,10 @@ public class MainPage {
     private final By personalAccount = By.xpath("//p[text()='Личный Кабинет']");
 
     //Заголовок "Соберите бургер"
-    private final By header = By.xpath("//h1[text()='Соберите бургер']");
+    private final By headerCollectBurger = By.xpath("//h1[text()='Соберите бургер']");
+
+    //Кнопка "Оформить заказ"
+    private final By buttonCreateOrder = By.xpath("//button[text()='Оформить заказ']");
 
     //Кнопка "Войти в аккаунт"
     private final By entranceInAccount = By.xpath("//button[text()='Войти в аккаунт']");
@@ -42,9 +50,20 @@ public class MainPage {
         click.waitClick(driver.findElement(constructorButton));
     }
 
-    @Step("Проверяем, что Конструктор отображается")
-    public boolean isHeaderDisplayed() {
-        return driver.findElement(header).isDisplayed();
+    @Step("Проверяем, что кнопка Оформить заказ отображается")
+    public boolean isCreateButtonDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(buttonCreateOrder));
+        return element.isDisplayed();
+    }
+
+    @Step("Проверяем, что заголовок Соберите бургер отображается")
+    public boolean isHeaderCollectBurgerDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(headerCollectBurger));
+        return element.isDisplayed();
     }
 
     @Step("Нажимаем на логотип")
